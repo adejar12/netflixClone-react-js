@@ -1,0 +1,83 @@
+.movieRow {
+    margin-top: 30px;
+}
+
+.movieRow h2 {
+    margin: 0px 0px 0px 30px;
+}
+
+.movieRow--listarea {
+    /*Lembra da propriedade que esconde as coisas se passar do limite?, então, olha o overflow ai*/
+    /*Acredito que ele fala, se aqui dentro over um overflow-x, corta */
+    overflow-x: hidden;
+    margin-left: 30px;
+}
+
+.movieRow--list {
+    transition: all ease 0.5s;
+}
+
+.moveRow--item {
+    /*inline-block para um item ficar do lado do outro*/
+    display: inline-block;
+    width: 150px;
+    cursor: pointer;
+}
+
+.moveRow--item img {
+    /*Lembra das aulas de imagem?, aqui esta usando 100% da largura disponivel, quanto que é?, 150
+    o tamanho esta lá no .moveRow--item*/
+    width: 100%;
+    /*Essa função scale abate o tamanho da imagem, então ela usa apenas 90%(0.9) do tamanho normal
+      dessa maneira permte que utilizemos animação para ela aumentar*/
+    transform: scale(0.9);
+    transition: all ease 0.2s;
+}
+
+.moveRow--item img:hover {
+    transform: scale(1);
+}
+
+.moveRow--left,
+.moveRow--right {
+    /*Posicionado em relação ao ancestral*/
+    width: 40px;
+    height: 225px;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    /*Lembrando, Z-index é feito para sobrepor os um elemento sobre o outro*/
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*O overflow foi utilizado pq o icone estava estrapolando a página, forçando a mesma a ter um scroll no eixo X*/
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0;
+    transition: all ease 0.5s;
+}
+
+.moveRow--left {
+    left: 0;
+}
+
+.moveRow--right {
+    right: 0;
+}
+
+
+/*Aqui tem uma jogada legal para quando passar o mouse sobre a lista, vai afetar que propriedade?, a propriedade 
+do moveRow--left e moveRow--right*/
+
+.movieRow:hover .moveRow--left,
+.movieRow:hover .moveRow--right {
+    opacity: 1;
+}
+
+@media (max-width:760px) {
+    /*Aplicando efeito de responsividade para os smartphone, pq se não as setinhas não aparecem*/
+    .moveRow--left,
+    .moveRow--right {
+        opacity: 1;
+    }
+}

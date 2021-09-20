@@ -1,0 +1,127 @@
+        .featured {
+            height: 100vh;
+        }
+        
+        .feature--vertical {
+            /*Aqui esta pegando o tamanho do pai*/
+            width: inherit;
+            /*Aqui esta pegando o tamanho do pai*/
+            height: inherit;
+            /*Aqui ele esta falando
+    Come do topo
+    Aplique essa cor, mas apenas nos 10% finais da imagem (já que falei que começa do topo)
+    E aplique uma transparencia de 90%*/
+            background: linear-gradient(to top, #111 10%, transparent 90%);
+        }
+        
+        .feature--horizontal {
+            width: inherit;
+            height: inherit;
+            background: linear-gradient(to right, #111 30%, transparent 70%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 30px;
+            /*Aqui foi adicionado 150px no bottom, pq lá no App.css adicionamos uma margin-top de 150px
+    O que faz com que as letras entre para dentro do container flex, para evitar isso subimos o conteudo
+    em 150px também*/
+            padding-bottom: 150px;
+            padding-top: 70px;
+        }
+        
+        .feature--name {
+            font-size: 60px;
+            /*deixar em negrito*/
+            font-weight: bold;
+        }
+        
+        .feature--info {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 15px;
+            display: flex;
+        }
+        
+        .feature--points,
+        .feature--year,
+        .feature--seasons {
+            margin-right: 15px;
+        }
+        
+        .feature--points {
+            color: #46d369;
+        }
+        
+        .feature--description {
+            margin-top: 15px;
+            font-size: 20px;
+            color: #999;
+            /*Olha o max-width aqui, para colocar o texto até onde queremos ir*/
+            max-width: 40%;
+        }
+        
+        .feature--buttons {
+            margin-top: 15px;
+            display: flex;
+        }
+        
+        .feature--watchbutton,
+        .feature--mylistbutton {
+            font-size: 20px;
+            font-weight: bold;
+            padding: 12px 25px;
+            /*Da para usar border-radius sem declarar as bordas*/
+            border-radius: 5px;
+            /*Aqui é para remover aquela cor azul*/
+            text-decoration: none;
+            margin-right: 10px;
+            /*Dar o ar de opaco */
+            opacity: 1;
+            transition: all ease 0.2s;
+        }
+        
+        .feature--watchbutton,
+        .feature--mylistbutton:hover {
+            opacity: 0.7;
+        }
+        
+        .feature--watchbutton {
+            background-color: #fff;
+            color: #000;
+        }
+        
+        .feature--mylistbutton {
+            background-color: #333;
+            color: #fff;
+        }
+        
+        .feature-genres {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #999;
+        }
+        
+        @media (max-width:760px) {
+            /*Aplicando efeito de responsividade para os smartphone, pq se não ocupa muito espaço no começo*/
+            .feature {
+                height: 90vh;
+            }
+            .feature--name {
+                font-size: 40px;
+            }
+            .feature--info {
+                font-size: 16px;
+            }
+            .feature--description {
+                font-size: 14px;
+                max-width: 100px;
+                margin-right: 30px;
+            }
+            .feature--watchbutton,
+            .feature--mylistbutton {
+                font-size: 16px;
+            }
+            .feature--genres {
+                font-size: 14px;
+            }
+        }
